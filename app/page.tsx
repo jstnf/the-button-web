@@ -1,21 +1,33 @@
-'use client'
-
 import BiscuitButton from "@/components/BiscuitButton";
 import BiscuitTimer from "@/components/BiscuitTimer";
 import BiscuitActivity from "@/components/BiscuitActivity";
-import {useState} from "react";
+import React from "react";
 
-export default function Home() {
-  const [presses, setPresses] = useState(0);
-  const onButtonPress = () => {
-    setPresses(presses + 1)
-  }
+export default async function Home(): Promise<React.ReactElement> {
+  const data: ResponseData = await getData()
 
   return (
     <main className="flex flex-col items-center min-h-svh justify-center pr-12 pl-12 sm:pr-24 sm:pl-24 select-none gap-y-12 sm:gap-y-14">
-      <BiscuitTimer expiry={1716015600000} presses={presses}/>
-      <BiscuitButton onClick={onButtonPress} presses={presses}/>
-      <BiscuitActivity whoPressed="Aron"/>
+      <BiscuitTimer expiry={data.expiry} presses={data.presses}/>
+      <BiscuitButton presses={data.presses}/>
+      <BiscuitActivity whoPressed={data.whoPressed}/>
     </main>
   );
+}
+
+interface ResponseData {
+  presses: number;
+  whoPressed?: string;
+  expiry: number;
+}
+
+async function getData(): Promise<ResponseData> {
+  // TODO: Fetch the actual data
+  const res = await fetch("https://dummyjson.com/products", { next: { tags: ["button-data"] } });
+  const data = await res.json();
+  return {
+    presses: 0,
+    whoPressed: "Aron",
+    expiry: 1716015600000
+  };
 }
