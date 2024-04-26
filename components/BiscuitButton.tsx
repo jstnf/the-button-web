@@ -1,7 +1,6 @@
 'use client';
 
 import React from "react";
-import {revalidateTag} from "next/cache";
 import {invalidateCache} from "@/app/actions";
 
 interface BiscuitButtonProps {
