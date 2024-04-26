@@ -1,7 +1,7 @@
 'use client';
 
 import React, {useCallback, useEffect, useState} from "react";
-import BiscuitsInfoText from "@/components/BiscuitsInfoText";
+import BiscuitInfoText from "@/components/BiscuitInfoText";
 
 interface BiscuitTimerProps {
   presses: number;
@@ -34,9 +34,9 @@ export default function BiscuitTimer({presses, expiry}: BiscuitTimerProps): Reac
   }, [presses, updateTime]);
 
   return (
-    <BiscuitsInfoText>
+    <BiscuitInfoText>
       {formatMilliseconds(time)} until the button expires.
-    </BiscuitsInfoText>
+    </BiscuitInfoText>
   )
 }
 
