@@ -2,17 +2,19 @@
 
 import BiscuitButton from "@/components/BiscuitButton";
 import BiscuitTimer from "@/components/BiscuitTimer";
+import BiscuitActivity from "@/components/BiscuitActivity";
 import {useState} from "react";
 
 export default function Home() {
   const [presses, setPresses] = useState(0);
 
   return (
-    <main className="flex flex-col items-center justify-between p-24 select-none gap-y-10">
+    <main className="flex flex-col items-center min-h-svh justify-center pr-24 pl-24 select-none gap-y-12 sm:gap-y-14">
       <BiscuitTimer expiry={1716015600000} presses={presses} />
       <BiscuitButton onClick={() => {
         setPresses(presses + 1)
       }} presses={presses}/>
+      <BiscuitActivity whoPressed="Aron" />
     </main>
   );
 }

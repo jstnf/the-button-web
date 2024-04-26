@@ -9,8 +9,8 @@ export default function BiscuitButton({onClick, presses}: BiscuitButtonProps): R
   return (
     <>
       <a onClick={onClick}>
-        <div className="p-52 hover:bg-red-500 rounded-full bg-red-600 flex justify-center border-[12px] border-gray-500 dark:border-gray-300 active:bg-red-400">
-          <p className="fixed -translate-y-1/2 text-4xl">{formatMoney(presses)}</p>
+        <div className="sm:p-52 p-[30vw] hover:bg-red-500 rounded-full bg-red-600 flex justify-center border-[14px] sm:border-[18px] border-gray-500 dark:border-gray-700 active:bg-red-400">
+          <p className="fixed -translate-y-1/2 text-4xl sm:text-5xl font-bold text-white">{formatMoney(presses)}</p>
         </div>
       </a>
     </>

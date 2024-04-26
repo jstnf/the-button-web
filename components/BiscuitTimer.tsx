@@ -1,6 +1,7 @@
 'use client';
 
 import React, {useCallback, useEffect, useState} from "react";
+import BiscuitsInfoText from "@/components/BiscuitsInfoText";
 
 interface BiscuitTimerProps {
   presses: number;
@@ -9,7 +10,7 @@ interface BiscuitTimerProps {
 
 const MILLIS_DEDUCTED_PER_PRESS: number = 180000;
 
-export default function BiscuitTimer({ presses, expiry }: BiscuitTimerProps): React.ReactElement {
+export default function BiscuitTimer({presses, expiry}: BiscuitTimerProps): React.ReactElement {
   const [time, setTime]: [number, (time: number) => void] = useState(0)
   const [animateIn, setAnimateIn]: [boolean, (animateIn: boolean) => void] = useState(false)
   const updateTime: () => void = useCallback(() => {
@@ -33,11 +34,9 @@ export default function BiscuitTimer({ presses, expiry }: BiscuitTimerProps): Re
   }, [presses, updateTime]);
 
   return (
-    <div>
-      <div className="flex justify-center p-4 border-2 rounded-lg bg-gray-200 dark:bg-gray-900 border-gray-600 dark:border-white">
-        <p className="text-2xl">{formatMilliseconds(time)} until the button expires.</p>
-      </div>
-    </div>
+    <BiscuitsInfoText>
+      {formatMilliseconds(time)} until the button expires.
+    </BiscuitsInfoText>
   )
 }
 
