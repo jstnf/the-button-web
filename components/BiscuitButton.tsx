@@ -7,13 +7,13 @@ interface BiscuitButtonProps {
 
 export default function BiscuitButton({onClick, presses}: BiscuitButtonProps): React.ReactElement {
   return (
-    <div>
+    <>
       <a onClick={onClick}>
-        <div className="p-52 hover:bg-red-400 rounded-full bg-red-500 flex justify-center">
+        <div className="p-52 hover:bg-red-500 rounded-full bg-red-600 flex justify-center border-[12px] border-gray-500 dark:border-gray-300 active:bg-red-400">
           <p className="fixed -translate-y-1/2 text-4xl">{formatMoney(presses)}</p>
         </div>
       </a>
-    </div>
+    </>
   )
 }
 

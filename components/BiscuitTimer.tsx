@@ -34,7 +34,7 @@ export default function BiscuitTimer({ presses, expiry }: BiscuitTimerProps): Re
 
   return (
     <div>
-      <div className="flex justify-center p-4 border-2 rounded-lg bg-gray-400 dark:bg-gray-900">
+      <div className="flex justify-center p-4 border-2 rounded-lg bg-gray-200 dark:bg-gray-900 border-gray-600 dark:border-white">
         <p className="text-2xl">{formatMilliseconds(time)} until the button expires.</p>
       </div>
     </div>
@@ -59,7 +59,7 @@ function formatMilliseconds(milliseconds: number): React.ReactElement {
       <span>
         {timeStrings.map((timeString, index) => (
           <span key={index}>
-            <strong>{timeString.split(" ")[0]}</strong>{" "}
+            <strong className="text-red-400">{timeString.split(" ")[0]}</strong>{" "}
             {timeString.split(" ")[1]}
             {index < timeStrings.length - 1 ? (timeStrings.length > 2 ? ", " : " and ") : ""}
           </span>
