@@ -2,17 +2,20 @@
 
 ### THE IDEA:
 - every button press adds 1 cent
-- timer until 5/18 (this is about 31500 minutes as I write this)
-- every button press removes 4 minutes from the timer
+- timer is initially until 5/18 (day of the trip)
+- every button press removes 3 minutes from the timer
 - you cannot press the button twice in a row
     - someone else has to press the button for you to be able to press it again
     - the button has a 15s cooldown for yourself (so no two people can keep spamming it really fast)
 - you get your own link to the button, that is ONLY yours
-    - this means you can press the button ANYWHERE, on your PC, on your phone, in bed, at work, etc...
+    - this way, you can't press the button on behalf of someone else
+    - you can use your link to press the button ANYWHERE, on your PC, on your phone, in bed, at work, etc...
 - the total and the timer update LIVE
 
 ### SO WHO PAYS?
 - pressing the button puts you on top of the list
+    - the list is ordered by the last time you pressed the button
+    - being put on the top of the list pushes everyone else down
 - the amount you pay depends on how close to the bottom of the list
     - bottom pays 50%
     - 2nd bottom pays 25%
