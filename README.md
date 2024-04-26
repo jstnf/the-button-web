@@ -1,3 +1,32 @@
+# Biscuits' THE BUTTON (v1.0)
+
+### THE IDEA:
+- every button press adds 1 cent
+- timer until 5/18 (this is about 31500 minutes as I write this)
+- every button press removes 4 minutes from the timer
+- you cannot press the button twice in a row
+    - someone else has to press the button for you to be able to press it again
+    - the button has a 15s cooldown for yourself (so no two people can keep spamming it really fast)
+- you get your own link to the button, that is ONLY yours
+    - this means you can press the button ANYWHERE, on your PC, on your phone, in bed, at work, etc...
+- the total and the timer update LIVE
+
+### SO WHO PAYS?
+- pressing the button puts you on top of the list
+- the amount you pay depends on how close to the bottom of the list
+    - bottom pays 50%
+    - 2nd bottom pays 25%
+    - 3rd 12.5%
+    - 4th 6.25%
+    - 5th 6.25%
+    - top 3 in the list pay NOTHING!!!
+
+### POSSIBLE OTHER IDEAS:
+- random chance of adding more than 1 cent
+- button plays random sound effect when you press it (cause why not + stim)
+
+-------------------
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
