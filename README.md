@@ -28,6 +28,9 @@
 - random chance of adding more than 1 cent
 - button plays random sound effect when you press it (cause why not + stim)
 
+## Resources
+- [Next.js + Docker impl](https://github.com/vercel/next.js/tree/canary/examples/with-docker)
+
 -------------------
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
