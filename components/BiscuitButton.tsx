@@ -1,6 +1,6 @@
 'use client';
 
-import React from "react";
+import React, {Suspense} from "react";
 import BiscuitButtonActuation from "@/components/BiscuitButtonActuation";
 
 interface BiscuitButtonProps {
@@ -12,7 +12,9 @@ export default function BiscuitButton({presses}: BiscuitButtonProps): React.Reac
     <div className="sm:p-56 p-[32vw] rounded-full flex justify-center bg-gray-500 dark:bg-gray-700">
       <div className="absolute sm:p-52 p-[30vw] hover:bg-red-500 rounded-full bg-red-600 flex justify-center active:bg-red-400 -translate-y-1/2">
         <span className="absolute -translate-y-1/2 text-4xl sm:text-5xl font-bold text-white">{formatMoney(presses)}</span>
-        <BiscuitButtonActuation />
+        <Suspense>
+          <BiscuitButtonActuation />
+        </Suspense>
       </div>
     </div>
   )
