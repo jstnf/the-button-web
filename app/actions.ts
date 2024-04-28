@@ -8,7 +8,7 @@ export async function invalidateCache(tag: string): Promise<void> {
 }
 
 export async function fetchData(): Promise<ResponseData> {
-  const res = await fetch("http://biscuitsbuttonserver:3001/api/v1/data", {
+  const res = await fetch("http://biscuitsbutton-server:3001/api/v1/data", {
     next: {
       tags: ["button-data"],
     },
@@ -19,7 +19,7 @@ export async function fetchData(): Promise<ResponseData> {
 
 export async function pressButton(userId: string): Promise<void> {
   try {;
-    const res: Response = await fetch("http://biscuitsbuttonserver:3001/api/v1/press", {
+    const res: Response = await fetch("http://biscuitsbutton-server:3001/api/v1/press", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
