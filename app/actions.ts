@@ -26,7 +26,8 @@ export async function pressButton(userId: string): Promise<void> {
       },
       body: JSON.stringify({userId}),
     });
-    console.log(res);
+    console.log(res.status)
+    console.log(await res.json());
   } catch (error) {
     console.error("Failed to send the request to the server", error);
   }
