@@ -17,8 +17,8 @@ export async function fetchData(): Promise<ResponseData> {
   return await res.json();
 }
 
-export async function pressButton(userId: string): Promise<void> {
-  try {;
+export async function pressButton(userId: string): Promise<string | undefined> {
+  try {
     const res: Response = await fetch("http://biscuitsbutton-server:3001/api/v1/press", {
       method: "POST",
       headers: {
@@ -27,7 +27,11 @@ export async function pressButton(userId: string): Promise<void> {
       body: JSON.stringify({userId}),
     });
     console.log(res.status)
-    console.log(await res.json());
+    const data = await res.json();
+    console.log(data);
+    if (res.status !== 200 && data.error !== undefined) {
+      return data.error;
+    }
   } catch (error) {
     console.error("Failed to send the request to the server", error);
   }
