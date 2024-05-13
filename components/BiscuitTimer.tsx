@@ -6,17 +6,15 @@ import BiscuitInfoText from "@/components/BiscuitInfoText";
 interface BiscuitTimerProps {
   presses: number;
   expiry: number;
+  millisPerPress: number;
 }
 
-const MILLIS_DEDUCTED_PER_PRESS: number = 180000;
-
-export default function BiscuitTimer({presses, expiry}: BiscuitTimerProps): React.ReactElement {
+export default function BiscuitTimer({presses, expiry, millisPerPress}: BiscuitTimerProps): React.ReactElement {
   const [time, setTime]: [number, (time: number) => void] = useState(0)
   const [animateIn, setAnimateIn]: [boolean, (animateIn: boolean) => void] = useState(false)
   const updateTime: () => void = useCallback(() => {
-    const currentTime: number = new Date().getTime()
-    setTime(Math.max(expiry - currentTime - (presses * MILLIS_DEDUCTED_PER_PRESS), 0))
-  }, [expiry, presses])
+    setTime(Math.max(computeTimeLeftMilliseconds(expiry, presses, millisPerPress), 0))
+  }, [expiry, presses, millisPerPress])
 
   useEffect(() => {
     const interval: NodeJS.Timeout = setInterval(() => {
@@ -38,6 +36,10 @@ export default function BiscuitTimer({presses, expiry}: BiscuitTimerProps): Reac
       {formatMilliseconds(time)} until the button expires.
     </BiscuitInfoText>
   )
+}
+
+function computeTimeLeftMilliseconds(expiry: number, presses: number, millisPerPress: number): number {
+  return expiry - new Date().getTime() - (presses * millisPerPress)
 }
 
 function formatMilliseconds(milliseconds: number): React.ReactElement {

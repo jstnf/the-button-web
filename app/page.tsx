@@ -11,6 +11,7 @@ export default function Home(): React.ReactElement {
   const [data, setData]: [ResponseData, (data: ResponseData) => void] = React.useState({
     presses: 0,
     expiry: 0,
+    millisPerPress: 0,
     whoPressed: "no one"
   } as ResponseData);
 
@@ -26,7 +27,7 @@ export default function Home(): React.ReactElement {
 
   return (
     <main className="flex flex-col items-center min-h-svh justify-center pr-12 pl-12 sm:pr-24 sm:pl-24 select-none gap-y-12 sm:gap-y-14">
-      <BiscuitTimer expiry={data.expiry} presses={data.presses}/>
+      <BiscuitTimer expiry={data.expiry} presses={data.presses} millisPerPress={data.millisPerPress}/>
       <BiscuitButton presses={data.presses}/>
       <BiscuitActivity whoPressed={data.whoPressed}/>
     </main>
