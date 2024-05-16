@@ -2,6 +2,7 @@
 
 import {revalidateTag} from "next/cache";
 import ResponseData from "@/src/ResponseData";
+import WhoWasLastResponseData from "@/src/WhoWasLastResponseData";
 
 export async function invalidateCache(tag: string): Promise<void> {
   revalidateTag(tag);
@@ -38,4 +39,14 @@ export async function pressButton(userId: string): Promise<string | undefined> {
 
   // Re-fetch the data on the home page
   await invalidateCache("button-data");
+}
+
+export async function fetchWhoWasLast(): Promise<WhoWasLastResponseData> {
+  const res = await fetch("http://biscuitsbutton-server:3001/api/v1/whowaslast", {
+    next: {
+      tags: ["whowaslast-data"],
+    },
+    cache: "no-cache"
+  });
+  return await res.json();
 }
